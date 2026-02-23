@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Swetha R | Xpertio</title>
-  <meta name="description" content="Digital ID Card – Swetha R, Operations Head at Xpertio" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="description" content="Digital ID Card – Sanjay P, Full Stack Developer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
-      --blue-dark:  #0a2463;
-      --blue-mid:   #1e5fc4;
+      --blue-dark: #0a2463;
+      --blue-mid: #1e5fc4;
       --blue-light: #3a86ff;
-      --white:      #ffffff;
-      --soft-bg:    #f0f6ff;
-      --border:     #dbeafe;
-      --text-dark:  #0d1b3e;
+      --white: #ffffff;
+      --soft-bg: #f0f6ff;
+      --border: #dbeafe;
+      --text-dark: #0d1b3e;
       --text-muted: #5a7ab5;
     }
 
-    html, body {
+    html,
+    body {
       min-height: 100%;
     }
 
@@ -37,11 +47,44 @@
     }
 
     /* floating glow blobs */
-    .blob { position: fixed; border-radius: 50%; filter: blur(90px); opacity: 0.18; pointer-events: none; z-index: 0; }
-    .blob-1 { width: 380px; height: 380px; background: #60a5fa; top: -120px; left: -100px; animation: blobMove1 9s ease-in-out infinite alternate; }
-    .blob-2 { width: 300px; height: 300px; background: #93c5fd; bottom: -80px; right: -80px; animation: blobMove2 11s ease-in-out infinite alternate; }
-    @keyframes blobMove1 { to { transform: translate(40px,40px) scale(1.12); } }
-    @keyframes blobMove2 { to { transform: translate(-40px,-30px) scale(1.08); } }
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob-1 {
+      width: 380px;
+      height: 380px;
+      background: #60a5fa;
+      top: -120px;
+      left: -100px;
+      animation: blobMove1 9s ease-in-out infinite alternate;
+    }
+
+    .blob-2 {
+      width: 300px;
+      height: 300px;
+      background: #93c5fd;
+      bottom: -80px;
+      right: -80px;
+      animation: blobMove2 11s ease-in-out infinite alternate;
+    }
+
+    @keyframes blobMove1 {
+      to {
+        transform: translate(40px, 40px) scale(1.12);
+      }
+    }
+
+    @keyframes blobMove2 {
+      to {
+        transform: translate(-40px, -30px) scale(1.08);
+      }
+    }
 
     /* ============ CARD ============ */
     .card {
@@ -51,13 +94,21 @@
       border-radius: 30px;
       width: 100%;
       max-width: 430px;
-      box-shadow: 0 40px 90px rgba(10,36,99,0.45), 0 0 0 1px rgba(255,255,255,0.25);
+      box-shadow: 0 40px 90px rgba(10, 36, 99, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.25);
       overflow: hidden;
-      animation: slideUp 0.85s cubic-bezier(0.34,1.4,0.64,1) both;
+      animation: slideUp 0.85s cubic-bezier(0.34, 1.4, 0.64, 1) both;
     }
+
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(70px) scale(0.94); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(70px) scale(0.94);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     /* -------- HEADER -------- */
@@ -67,39 +118,53 @@
       position: relative;
       overflow: visible;
     }
+
     /* subtle pattern overlay */
     .card-header::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
-                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+      background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
       pointer-events: none;
     }
 
     /* NFC badge */
     .nfc-badge {
       position: absolute;
-      top: 18px; right: 20px;
-      width: 38px; height: 38px;
-      background: rgba(255,255,255,0.15);
-      border: 1.5px solid rgba(255,255,255,0.35);
+      top: 18px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 18px;
       z-index: 2;
     }
+
     .nfc-badge::before {
       content: '';
       position: absolute;
       inset: -8px;
       border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.25);
+      border: 2px solid rgba(255, 255, 255, 0.25);
       animation: nfcPulse 2.2s ease-out infinite;
     }
+
     @keyframes nfcPulse {
-      0%   { transform: scale(1);   opacity: 0.8; }
-      100% { transform: scale(1.6); opacity: 0; }
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.6);
+        opacity: 0;
+      }
     }
 
     /* Company logo */
@@ -108,9 +173,10 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 12px;
-      position: relative; 
+      position: relative;
       z-index: 2;
     }
+
     .logo-pill {
       background: #ffffff;
       border-radius: 16px;
@@ -118,8 +184,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.15);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.15);
     }
+
     .logo-img {
       height: 46px;
       width: auto;
@@ -130,7 +197,7 @@
 
     .header-subtitle {
       text-align: center;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255, 255, 255, 0.65);
       font-size: 0.75rem;
       letter-spacing: 2.5px;
       text-transform: uppercase;
@@ -147,14 +214,16 @@
       transform: translateX(-50%);
       z-index: 10;
     }
+
     .profile-ring {
       width: 128px;
       height: 128px;
       border-radius: 50%;
       padding: 4px;
       background: linear-gradient(135deg, #3a86ff, #0a2463);
-      box-shadow: 0 10px 35px rgba(10,36,99,0.45);
+      box-shadow: 0 10px 35px rgba(10, 36, 99, 0.45);
     }
+
     .profile-img {
       width: 100%;
       height: 100%;
@@ -168,12 +237,16 @@
     /* verified tick */
     .verified-tick {
       position: absolute;
-      bottom: 4px; right: 4px;
-      width: 28px; height: 28px;
+      bottom: 4px;
+      right: 4px;
+      width: 28px;
+      height: 28px;
       background: linear-gradient(135deg, #22d3ee, #0ea5e9);
       border-radius: 50%;
       border: 2.5px solid #fff;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 13px;
     }
 
@@ -191,6 +264,7 @@
       letter-spacing: -0.5px;
       margin-bottom: 4px;
     }
+
     .role {
       font-size: 0.92rem;
       font-weight: 700;
@@ -199,19 +273,36 @@
       text-transform: uppercase;
       margin-bottom: 4px;
     }
+
     .company-line {
       font-size: 0.88rem;
       color: var(--text-muted);
       margin-bottom: 20px;
     }
-    .company-line strong { color: var(--blue-dark); font-weight: 700; }
+
+    .company-line strong {
+      color: var(--blue-dark);
+      font-weight: 700;
+    }
 
     /* dots */
     .dots {
-      display: flex; gap: 5px; justify-content: center; margin-bottom: 20px;
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); }
-    .dot.on { background: var(--blue-light); }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .dot.on {
+      background: var(--blue-light);
+    }
 
     /* -------- QUOTE -------- */
     .quote {
@@ -223,15 +314,18 @@
       text-align: left;
       position: relative;
     }
+
     .quote-mark {
       font-size: 3rem;
       line-height: 1;
       color: var(--blue-light);
       opacity: 0.3;
       position: absolute;
-      top: 2px; left: 10px;
+      top: 2px;
+      left: 10px;
       font-family: Georgia, serif;
     }
+
     .quote p {
       padding-left: 28px;
       font-size: 0.875rem;
@@ -242,15 +336,21 @@
 
     /* -------- SECTION DIVIDER -------- */
     .sec {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.72rem; font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--text-muted);
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin: 0 0 14px;
     }
-    .sec::before, .sec::after {
-      content: ''; flex: 1;
+
+    .sec::before,
+    .sec::after {
+      content: '';
+      flex: 1;
       height: 1px;
       background: linear-gradient(to right, transparent, #c7d8f0, transparent);
     }
@@ -263,6 +363,7 @@
       margin-bottom: 22px;
       text-align: left;
     }
+
     .info-item {
       display: flex;
       align-items: center;
@@ -275,18 +376,24 @@
       text-decoration: none;
       color: inherit;
     }
+
     .info-item:hover {
       transform: translateX(5px);
-      box-shadow: 0 4px 18px rgba(58,134,255,0.14);
+      box-shadow: 0 4px 18px rgba(58, 134, 255, 0.14);
     }
+
     .info-icon {
-      width: 38px; height: 38px;
+      width: 38px;
+      height: 38px;
       background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
       border-radius: 11px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.1rem;
       flex-shrink: 0;
     }
+
     .info-text .lbl {
       font-size: 0.69rem;
       font-weight: 600;
@@ -294,6 +401,7 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
+
     .info-text .val {
       font-size: 0.88rem;
       font-weight: 600;
@@ -307,21 +415,31 @@
       border-radius: 18px;
       padding: 18px 10px;
       margin-bottom: 22px;
-      box-shadow: 0 6px 20px rgba(10,36,99,0.25);
+      box-shadow: 0 6px 20px rgba(10, 36, 99, 0.25);
     }
-    .stat { flex: 1; text-align: center; }
+
+    .stat {
+      flex: 1;
+      text-align: center;
+    }
+
     .stat-num {
       font-size: 1.35rem;
       font-weight: 800;
       color: #fff;
     }
+
     .stat-lbl {
       font-size: 0.68rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.6);
       font-weight: 500;
       letter-spacing: 0.3px;
     }
-    .stat-sep { width: 1px; background: rgba(255,255,255,0.18); }
+
+    .stat-sep {
+      width: 1px;
+      background: rgba(255, 255, 255, 0.18);
+    }
 
     /* -------- SKILLS -------- */
     .skills {
@@ -331,6 +449,7 @@
       justify-content: center;
       margin-bottom: 22px;
     }
+
     .skill {
       background: var(--soft-bg);
       border: 1.5px solid var(--border);
@@ -341,10 +460,21 @@
       border-radius: 50px;
       transition: all 0.2s;
     }
-    .skill:hover { background: var(--blue-mid); color: #fff; border-color: var(--blue-mid); }
+
+    .skill:hover {
+      background: var(--blue-mid);
+      color: #fff;
+      border-color: var(--blue-mid);
+    }
 
     /* -------- PROJECTS -------- */
-    .projects { display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 22px;
+    }
+
     .proj-card {
       background: var(--soft-bg);
       border: 1px solid var(--border);
@@ -352,8 +482,19 @@
       padding: 13px 15px;
       text-align: left;
     }
-    .proj-title { font-weight: 700; font-size: 0.875rem; color: var(--text-dark); margin-bottom: 3px; }
-    .proj-desc  { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    .proj-title {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+
+    .proj-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
     /* -------- BUTTONS -------- */
     .btn-grid {
@@ -362,6 +503,7 @@
       gap: 10px;
       margin-bottom: 22px;
     }
+
     .btn {
       display: flex;
       align-items: center;
@@ -377,14 +519,45 @@
       font-family: 'Inter', sans-serif;
       transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
     }
-    .btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); filter: brightness(1.06); }
-    .btn:active { transform: translateY(0); }
 
-    .btn-full  { grid-column: span 2; padding: 15px; font-size: 0.95rem; background: linear-gradient(135deg, #0a2463, #3a86ff); color: #fff; box-shadow: 0 6px 22px rgba(58,134,255,0.38); }
-    .btn-call  { background: #e8f4ff; color: #0a2463; }
-    .btn-email { background: #e8f4ff; color: #0a2463; }
-    .btn-wa    { background: linear-gradient(135deg,#25d366,#128c7e); color: #fff; }
-    .btn-li    { background: linear-gradient(135deg,#0077b5,#004f7c); color: #fff; }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      filter: brightness(1.06);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-full {
+      grid-column: span 2;
+      padding: 15px;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, #0a2463, #3a86ff);
+      color: #fff;
+      box-shadow: 0 6px 22px rgba(58, 134, 255, 0.38);
+    }
+
+    .btn-call {
+      background: #e8f4ff;
+      color: #0a2463;
+    }
+
+    .btn-email {
+      background: #e8f4ff;
+      color: #0a2463;
+    }
+
+    .btn-wa {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+    }
+
+    .btn-li {
+      background: linear-gradient(135deg, #0077b5, #004f7c);
+      color: #fff;
+    }
 
     /* -------- SECOND QUOTE -------- */
     .quote2 {
@@ -394,8 +567,9 @@
       margin-bottom: 0;
       text-align: center;
     }
+
     .quote2 p {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 0.87rem;
       font-style: italic;
       line-height: 1.65;
@@ -407,18 +581,27 @@
       padding: 14px 24px;
       text-align: center;
       font-size: 0.72rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       letter-spacing: 0.5px;
       line-height: 1.7;
     }
-    .card-footer strong { color: rgba(255,255,255,0.8); }
+
+    .card-footer strong {
+      color: rgba(255, 255, 255, 0.8);
+    }
 
     @media (max-width: 440px) {
-      .name { font-size: 1.5rem; }
-      .card-body { padding: 78px 18px 24px; }
+      .name {
+        font-size: 1.5rem;
+      }
+
+      .card-body {
+        padding: 78px 18px 24px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="blob blob-1"></div>
@@ -443,8 +626,8 @@
       <!-- Profile photo -->
       <div class="profile-outer">
         <div class="profile-ring">
-          <img src="swetha_new.jpg" alt="Swetha R" class="profile-img"
-               onerror="this.style.background='#1e5fc4'; this.alt='S';" />
+          <img src="82279aa.jpeg" alt="Sanjay P" class="profile-img"
+            onerror="this.style.background='#1e5fc4'; this.alt='S';" />
         </div>
         <div class="verified-tick">✔</div>
       </div>
@@ -454,49 +637,61 @@
     <div class="card-body">
 
       <!-- Name -->
-      <div class="name">Swetha Ramamoorthi</div>
-      <div class="role">💼Operations Head</div>
-      <div class="company-line">🏢 <strong>Xpertio Technologies</strong> &nbsp;|&nbsp; 📍 Dindigul, TN</div>
+      <div class="name">Sanjay P</div>
+      <div class="role">💼 Full Stack Developer</div>
+      <div class="company-line">🏢 <strong>PSG College of Technology</strong> &nbsp;|&nbsp; 📍 Coimbatore, TN</div>
 
       <div class="dots">
-        <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+        <div class="dot on"></div>
+        <div class="dot"></div>
+        <div class="dot on"></div>
+        <div class="dot"></div>
+        <div class="dot on"></div>
       </div>
 
       <!-- Quote 1 -->
       <div class="quote">
         <span class="quote-mark">"</span>
-        <p>Innovation is seeing what everybody has seen and thinking what nobody has thought. Let's build something extraordinary together!</p>
+        <p>Detail-oriented MCA student with practical experience in full-stack development and real-world project
+          implementation. Let's create something meaningful!</p>
       </div>
 
       <!-- Contact Info -->
-      <div class="sec">📬 Contact</div>
+      <div class="sec">Contact</div>
       <div class="info-list">
-        <a href="tel:+916380459779" class="info-item">
+        <a href="tel:+919150802851" class="info-item">
           <div class="info-icon">📱</div>
           <div class="info-text">
             <div class="lbl">Mobile</div>
-            <div class="val">+91 63804 59779</div>
+            <div class="val">+91 91508 02851</div>
           </div>
         </a>
-        <a href="mailto:rswetha2807@gmail.com" class="info-item">
+        <a href="mailto:sanjaypanneerselvan@gmail.com" class="info-item">
           <div class="info-icon">📧</div>
           <div class="info-text">
             <div class="lbl">Email</div>
-            <div class="val">rswetha2807@gmail.com</div>
+            <div class="val">sanjaypanneerselvan@gmail.com</div>
           </div>
         </a>
         <div class="info-item">
-          <div class="info-icon">🏠</div>
+          <div class="info-icon">�</div>
           <div class="info-text">
             <div class="lbl">Address</div>
-            <div class="val">2/100 PillayarNatham, Pithalai Patti, Dindigul – 624002</div>
+            <div class="val">32B,Sanjay Illam, Mumma naicker Street, PN Pudur, Coimbatore 641041</div>
           </div>
         </div>
         <div class="info-item">
-          <div class="info-icon">🎓</div>
+          <div class="info-icon">�</div>
           <div class="info-text">
             <div class="lbl">Education</div>
-            <div class="val">MCA — PSG College of Technology, Coimbatore</div>
+            <div class="val">MCA — PSG College of Technology (2024-2026)</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">�️</div>
+          <div class="info-text">
+            <div class="lbl">Previous degree</div>
+            <div class="val">Bachelor of Computer Technology — PSGCAS</div>
           </div>
         </div>
       </div>
@@ -504,7 +699,7 @@
       <!-- Stats -->
       <div class="stats">
         <div class="stat">
-          <div class="stat-num">3+</div>
+          <div class="stat-num">4+</div>
           <div class="stat-lbl">🗓️ Projects</div>
         </div>
         <div class="stat-sep"></div>
@@ -523,66 +718,70 @@
       <div class="sec">Skills</div>
       <div class="skills">
         <span class="skill">Java</span>
-        <span class="skill">MERN Stack</span>
-        <span class="skill">SQL</span>
-        <span class="skill">MongoDB</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">React.js</span>
+        <span class="skill">Node.js</span>
         <span class="skill">Flutter</span>
-        <span class="skill">Data Structures</span>
-        <span class="skill">AI &amp; ML</span>
-        <span class="skill">AR Development</span>
+        <span class="skill">MongoDB</span>
+        <span class="skill">MySQL</span>
+        <span class="skill">Firebase</span>
+        <span class="skill">AWS</span>
         <span class="skill">GitHub</span>
-        <span class="skill">OOP Concepts</span>
-        <span class="skill">Problem Solving</span>
-        <span class="skill">VS Code</span>
+        <span class="skill">Adobe Photoshop</span>
+        <span class="skill">Canva</span>
       </div>
 
       <!-- Projects -->
       <div class="sec">Projects</div>
       <div class="projects">
         <div class="proj-card">
-          <div class="proj-title">🤖 Mind Mentor — AI Mental Health Chatbot</div>
-          <div class="proj-desc">AI-powered MERN stack chatbot with NLP, mood detection, and secure data handling for real-time emotional support.</div>
+          <div class="proj-title">FinCorp — AI Financial Analyser</div>
+          <div class="proj-desc">AI-powered app for smart expense tracking, investment insights, and portfolio analysis.
+          </div>
         </div>
         <div class="proj-card">
-          <div class="proj-title">☕ Cafe Cloud — Table Booking &amp; Snack Ordering App</div>
-          <div class="proj-desc">Full-stack MERN app for real-time table reservations and snack ordering with an intuitive, responsive UI.</div>
+          <div class="proj-title">Dharma Seva — Food Waste Management</div>
+          <div class="proj-desc">A food redistribution project that collects surplus food and delivers it to those in
+            need.</div>
         </div>
         <div class="proj-card">
-          <div class="proj-title">👗 Varnam — AR Clothing &amp; Shopping App</div>
-          <div class="proj-desc">Flutter-based AR app enabling virtual try-on of clothing, reducing uncertainty in online apparel purchases.</div>
+          <div class="proj-title">ParkIt — Parking Slot Booking</div>
+          <div class="proj-desc">A smart system that enables users to book parking slots in advance with real-time
+            availability.</div>
         </div>
       </div>
 
-      <!-- Activities -->
-      <div class="sec">Activities</div>
+      <!-- Leadership -->
+      <div class="sec">Leadership</div>
       <div class="skills" style="margin-bottom:22px;">
-        <span class="skill">Event Emcee</span>
-        <span class="skill">Quiz Coordinator</span>
-        <span class="skill">Treasure Hunt</span>
-        <span class="skill">Event Host</span>
+        <span class="skill">Rotaract President</span>
+        <span class="skill">Radio Program Head</span>
+        <span class="skill">Seed Representative</span>
+        <span class="skill">Event Coordinator</span>
       </div>
 
       <!-- Action Buttons -->
       <div class="sec">Quick Actions</div>
       <div class="btn-grid">
-        <a href="tel:+916380459779" class="btn btn-call">📞 Call</a>
-        <a href="mailto:rswetha2807@gmail.com" class="btn btn-email">✉️ Email</a>
-        <a href="https://wa.me/916380459779" target="_blank" class="btn btn-wa">💬 WhatsApp</a>
-        <a href="https://www.linkedin.com" target="_blank" class="btn btn-li">🔗 LinkedIn</a>
-        <button onclick="saveContact()" class="btn btn-full">💾 Save Contact to Phone</button>
+        <a href="tel:+919150802851" class="btn btn-call"> Call</a>
+        <a href="mailto:sanjaypanneerselvan@gmail.com" class="btn btn-email"> Email</a>
+        <a href="https://wa.me/919150802851" target="_blank" class="btn btn-wa"> WhatsApp</a>
+        <a href="https://github.com/sanjaypanneerselvan" target="_blank" class="btn btn-li"> GitHub</a>
+        <button onclick="saveContact()" class="btn btn-full">Save Contact to Phone</button>
       </div>
 
       <!-- Quote 2 -->
       <div class="quote2">
-        <p>"The best way to predict the future is to create it."— Every connection matters, every idea has potential. Let's innovate together! </p>
+        <p>"Innovation is the difference between a leader and a follower."— Let's connect and build the future together!
+        </p>
       </div>
 
     </div>
 
     <!-- ===== FOOTER ===== -->
     <div class="card-footer">
-      🔒 Verified Digital Identity Card &nbsp;|&nbsp; <strong>Xpertio Technologies</strong><br />
-      📡 Powered by NFC Smart Tag Technology
+       Verified Digital Identity Card &nbsp;|&nbsp; <strong>Sanjay P</strong><br />
+       Powered by NFC Smart Tag Technology
     </div>
 
   </div>
@@ -591,19 +790,18 @@
     function saveContact() {
       const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:Swetha R
-N:R;Swetha;;;
-ORG:Xpertio Technologies
-TITLE:Operations Head
-TEL;TYPE=CELL:+916380459779
-EMAIL:rswetha2807@gmail.com
-ADR;TYPE=HOME:;;2/100 PillayarNatham Pithalai Patti;Dindigul;Tamil Nadu;624002;India
+FN:Sanjay P
+N:P;Sanjay;;;
+ORG:PSG College of Technology
+TITLE:Full Stack Developer
+TEL;TYPE=CELL:+919150802851
+EMAIL:sanjaypanneerselvan@gmail.com
 END:VCARD`;
       const blob = new Blob([vCard], { type: 'text/vcard' });
-      const url  = URL.createObjectURL(blob);
-      const a    = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
       a.href = url;
-      a.download = 'Swetha_R_Xpertio.vcf';
+      a.download = 'Sanjay_P_ID.vcf';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -615,15 +813,15 @@ END:VCARD`;
       '.info-item, .btn, .skill, .proj-card, .stat'
     );
     items.forEach(el => {
-      el.style.opacity   = '0';
+      el.style.opacity = '0';
       el.style.transform = 'translateY(14px)';
-      el.style.transition= 'opacity 0.45s ease, transform 0.45s ease';
+      el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
     });
     const io = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
           setTimeout(() => {
-            e.target.style.opacity   = '1';
+            e.target.style.opacity = '1';
             e.target.style.transform = 'translateY(0)';
           }, i * 60);
           io.unobserve(e.target);
@@ -634,4 +832,5 @@ END:VCARD`;
   </script>
 
 </body>
+
 </html>
